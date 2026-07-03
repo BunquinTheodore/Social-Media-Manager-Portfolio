@@ -40,6 +40,9 @@ let isDeleting = false;
 let typingSpeed = 150;
 
 function type() {
+    // Only run typing animation if element exists
+    if (!typingText) return;
+    
     const currentText = texts[textIndex];
     
     if (isDeleting) {
@@ -160,14 +163,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Form submission handler
 const contactForm = document.getElementById('contactForm');
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Get form values
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
     
     // Create mailto link
     const mailtoLink = `mailto:bunquintheodore@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
@@ -180,7 +184,8 @@ contactForm.addEventListener('submit', (e) => {
     
     // Reset form
     contactForm.reset();
-});
+    });
+}
 
 // Add animation on scroll for sections
 const sectionObserver = new IntersectionObserver((entries) => {
@@ -342,3 +347,26 @@ document.head.appendChild(style);
 
 console.log('%c🚀 Welcome to Theodore\'s Portfolio!', 'font-size: 20px; color: #6366f1; font-weight: bold;');
 console.log('%c💼 Looking for a Social Media Manager? Let\'s connect!', 'font-size: 14px; color: #ec4899;');
+
+// Tab switching functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const tabName = button.getAttribute('data-tab');
+            
+            // Remove active class from all buttons and contents
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            // Add active class to clicked button and corresponding content
+            button.classList.add('active');
+            const activeContent = document.getElementById(`${tabName}-tab`);
+            if (activeContent) {
+                activeContent.classList.add('active');
+            }
+        });
+    });
+});

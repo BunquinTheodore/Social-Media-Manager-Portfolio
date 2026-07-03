@@ -1363,6 +1363,167 @@ section {
     animation: fadeIn 0.5s ease;
 }
 
+/* Certification Styles */
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    padding: 2rem 0;
+    margin: 3rem 0;
+}
+
+.certification-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.certification-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.certification-card:hover::before {
+    opacity: 0.08;
+}
+
+.certification-card:hover {
+    transform: translateY(-15px);
+    border-color: var(--primary-color);
+    box-shadow: 0 25px 50px rgba(99, 102, 241, 0.3);
+}
+
+.certification-badge {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 1.5rem;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+}
+
+.certification-card:hover .certification-badge {
+    transform: scale(1.1) rotateZ(5deg);
+}
+
+.certification-badge a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.certification-badge img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+.certification-badge a:hover img {
+    filter: brightness(1.2) drop-shadow(0 0 10px rgba(99, 102, 241, 0.5));
+}
+
+.certification-info {
+    position: relative;
+    z-index: 1;
+}
+
+.certification-info h4 {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.certification-card:hover .certification-info h4 {
+    color: var(--primary-light);
+}
+
+.certification-info p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.verify-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-light);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+    background: rgba(99, 102, 241, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.verify-link:hover {
+    background: rgba(99, 102, 241, 0.2);
+    border-color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+.verify-link i {
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.verify-link:hover i {
+    transform: rotate(45deg);
+}
+
+/* Responsive Certifications */
+@media (max-width: 1024px) {
+    .certifications-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .certifications-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .certification-badge {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .certification-card {
+        padding: 2rem 1.5rem;
+    }
+}
+
 /* Responsive Tabs */
 @media (max-width: 768px) {
     .tab-buttons {
@@ -1474,4 +1635,343 @@ section {
         grid-template-columns: repeat(2, 1fr);
     }
 
+}
+
+/* Certifications Page Styles */
+.certifications-hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 100px 20px 60px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.certifications-hero-content {
+    text-align: center;
+    max-width: 900px;
+    animation: fadeInUp 0.8s ease;
+}
+
+.certifications-hero-content .section-tag {
+    animation: fadeIn 0.8s ease 0.2s both;
+}
+
+.certifications-hero-content .hero-title {
+    font-size: 3.5rem;
+    margin: 1rem 0;
+    animation: fadeIn 0.8s ease 0.4s both;
+}
+
+.certifications-hero-content .hero-subtitle {
+    font-size: 1.3rem;
+    color: var(--text-muted);
+    margin: 1.5rem 0;
+    animation: fadeIn 0.8s ease 0.6s both;
+}
+
+.certifications-section {
+    background: var(--dark-bg);
+    padding: 80px 20px;
+}
+
+.certifications-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    padding: 2rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    animation: fadeInUp 0.8s ease;
+}
+
+.certifications-intro p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Enhanced Certification Card for standalone page */
+.certifications-section .certification-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 3rem 2.5rem;
+    text-align: center;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeInUp 0.8s ease;
+}
+
+.certifications-section .certification-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.certifications-section .certification-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.certifications-section .certification-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.certification-badge-container {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 2rem;
+    width: 160px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+}
+
+.certification-badge-container a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.certification-badge-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+}
+
+.certification-card:hover .certification-badge-container {
+    transform: scale(1.15) rotateZ(5deg);
+}
+
+.certification-card:hover .certification-badge-container img {
+    filter: brightness(1.2) drop-shadow(0 0 15px rgba(99, 102, 241, 0.6));
+}
+
+.certification-info h3 {
+    color: var(--text-primary);
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.cert-issuer {
+    color: var(--primary-light);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.cert-description {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.certification-card:hover .certification-info h3 {
+    color: var(--primary-light);
+}
+
+/* CTA Section */
+.certifications-cta {
+    background: var(--darker-bg);
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.cta-content {
+    max-width: 900px;
+    margin: 0 auto;
+    animation: fadeInUp 0.8s ease;
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.cta-content p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-buttons .btn {
+    transition: all 0.3s ease;
+}
+
+.logo-link {
+    text-decoration: none;
+    display: block;
+}
+
+.active-nav {
+    color: var(--primary-light) !important;
+    position: relative;
+}
+
+.active-nav::after {
+    width: 100% !important;
+}
+
+/* Footer Section */
+.footer-section {
+    animation: fadeInUp 0.8s ease;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.footer-section p {
+    color: var(--text-muted);
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    color: var(--text-muted);
+    margin-bottom: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.footer-section ul li:hover,
+.footer-section ul li a:hover {
+    color: var(--primary-light);
+    transform: translateX(5px);
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.footer-socials a {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--card-bg);
+    border-radius: 50%;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.footer-socials a:hover {
+    background: var(--gradient-primary);
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+}
+
+/* Responsive Certifications Page */
+@media (max-width: 1024px) {
+    .certifications-hero-content .hero-title {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .certifications-hero {
+        min-height: 60vh;
+        padding: 80px 20px 40px;
+    }
+
+    .certifications-hero-content .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .certifications-section {
+        padding: 60px 20px;
+    }
+
+    .certifications-intro {
+        margin-bottom: 3rem;
+        padding: 1.5rem;
+    }
+
+    .certification-badge-container {
+        width: 140px;
+        height: 140px;
+    }
+
+    .certifications-section .certification-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .certification-info h3 {
+        font-size: 1.2rem;
+    }
+
+    .cta-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .cta-buttons {
+        gap: 1rem;
+        flex-direction: column;
+    }
+
+    .cta-buttons .btn {
+        width: 100%;
+    }
+
+    .nav-menu {
+        font-size: 0.95rem;
+        gap: 1rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 }
